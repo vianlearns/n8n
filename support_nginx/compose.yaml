@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    restart: always
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      - N8N_HOST=n8n.pramukasmktexmaco.my.id
+      - N8N_PORT=5678
+      - NODE_ENV=production
+      - GENERIC_TIMEZONE=Asia/Jakarta
+      - WEBHOOK_URL=https://n8n.pramukasmktexmaco.my.id/
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./local-files:/files
+
+volumes:
+  n8n_data:
